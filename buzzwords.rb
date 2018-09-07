@@ -1,8 +1,11 @@
 require 'mechanize'
 
 require_relative 'ny_times.rb'
+require_relative 'stopwords.rb'
 
 class Buzzwords
+  include Stopwords
+
   attr_reader :nytimes
   attr_accessor :aggregate_headlines
 
@@ -14,14 +17,25 @@ class Buzzwords
     generate_buzz
   end
 
+  def generate_buzz
+    retrieve_nytimes_headlines
+    p aggregate_headlines.length
+    filter_stopwords
+    p aggregate_headlines.length
+  end
+
   private
 
   def retrieve_nytimes_headlines
-    self.aggregate_headlines += nytimes.headlines
+    self.aggregate_headlines += nytimes.headlines.map(&:split).flatten.map do |word|
+      word.delete('/\A[\W]/').delete('/[\W]\z/').gsub(/\'s/, '')
+    end
   end
 
-  def generate_buzz
-    retrieve_nytimes_headlines
+  def filter_stopwords
+    self.aggregate_headlines = aggregate_headlines.select do |word|
+      Stopwords.valid?(word)
+    end
   end
 end
 
