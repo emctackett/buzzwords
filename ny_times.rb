@@ -1,10 +1,9 @@
 class NYTimes
-  attr_reader :test, :webpage, :headlines
+  attr_reader :webpage, :headlines
 
   US_HEADLINE_URL = "https://www.nytimes.com/section/us"
 
   def initialize
-    @test = 'test'
     @webpage = Buzzwords::MECH.get(US_HEADLINE_URL)
   end
 
