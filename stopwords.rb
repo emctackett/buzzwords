@@ -16,7 +16,7 @@
 module Stopwords
 
   STOP_WORDS = [
-    'a','cannot','into','our','thus','about','co','is','ours','to','above',
+    'a', 'am', 'cannot','into','our','thus','about','co','is','ours','to','above',
     'could','it','ourselves','together','across','down','its','out','too',
     'after','during','itself','over','toward','afterwards','each','last','own',
     'towards','again','eg','latter','per','under','against','either','latterly',
