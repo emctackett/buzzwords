@@ -24,15 +24,21 @@ class Buzzwords
   end
 
   def generate_buzz
+    display_loading
     retrieve_nytimes_headlines
     retrieve_wapo_headlines
     retrieve_cnn_headlines
     filter_stopwords
     count_word_occurrences
-    sort_word_occurrences
+    determine_top_words
+    display_top_words
   end
 
   private
+
+  def display_loading
+    puts "Loading current buzzwords..."
+  end
 
   def retrieve_nytimes_headlines
     self.aggregate_headlines += parse_headlines(nytimes.headlines)
@@ -64,13 +70,17 @@ class Buzzwords
     end
   end
 
-  def sort_word_occurrences # this method is not working
-    # self.top_words = word_occurrences.keys.sort_by do |key1, key2|
-    #   word_occurrences[key2] <=> word_occurrences[key1]
-    # end
+  def determine_top_words
+    self.top_words = word_occurrences.sort_by { |k, v| v }.reverse.take(20)
+                    .reject{ |word| word.last < 3 }
+                    .map { |word| word.first }
+  end
+
+  def display_top_words
+    puts "Today's top buzzwords are: "
+    top_words.each { |word| puts " - #{word}" }
   end
 end
 
 buzzwords = Buzzwords.new
 
-p buzzwords.top_words
