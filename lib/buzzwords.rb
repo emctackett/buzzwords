@@ -3,12 +3,13 @@ require 'mechanize'
 require_relative 'ny_times.rb'
 require_relative 'washington_post.rb'
 require_relative 'cnn.rb'
+require_relative 'reuters.rb'
 require_relative 'stopwords.rb'
 
 class Buzzwords
   include Stopwords
 
-  attr_reader :nytimes, :wapo, :cnn
+  attr_reader :nytimes, :wapo, :cnn, :reuters
   attr_accessor :aggregate_headlines, :word_occurrences, :top_words
 
   MECH = Mechanize.new
@@ -17,10 +18,10 @@ class Buzzwords
     @nytimes = NYTimes.new
     @wapo = WashingtonPost.new
     @cnn = CNN.new
+    @reuters = Reuters.new
     @aggregate_headlines = []
     @word_occurrences = {}
     @top_words = nil
-    generate_buzz
   end
 
   def generate_buzz
@@ -28,13 +29,12 @@ class Buzzwords
     retrieve_nytimes_headlines
     retrieve_wapo_headlines
     retrieve_cnn_headlines
+    retrieve_reuters_headlines
     filter_stopwords
     count_word_occurrences
     determine_top_words
     display_top_words
   end
-
-  private
 
   def display_loading
     puts "Loading current buzzwords..."
@@ -50,6 +50,10 @@ class Buzzwords
 
   def retrieve_cnn_headlines
     self.aggregate_headlines += parse_headlines(cnn.headlines)
+  end
+
+  def retrieve_reuters_headlines
+    self.aggregate_headlines += parse_headlines(reuters.headlines)
   end
 
   def parse_headlines(data)
@@ -83,4 +87,5 @@ class Buzzwords
 end
 
 buzzwords = Buzzwords.new
+buzzwords.generate_buzz
 
