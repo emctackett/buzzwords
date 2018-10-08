@@ -53,4 +53,13 @@ describe 'buzzwords' do
       end
     end
   end
+
+  context '.filter_stopwords' do
+    before { Buzzwords.retrieve_nytimes_headlines }
+
+    it 'should filter stopwords from aggregate headline list' do
+      Buzzwords.filter_stopwords
+      expect(Buzzwords.aggregate_headlines).not_to include(*Stopwords::STOP_WORDS)
+    end
+  end
 end

@@ -7,8 +7,6 @@ require_relative 'reuters.rb'
 require_relative 'stopwords.rb'
 
 class Buzzwords
-  # include Stopwords
-
   MECH = Mechanize.new
 
   @aggregate_headlines = []
