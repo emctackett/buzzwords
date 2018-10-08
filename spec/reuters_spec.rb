@@ -1,4 +1,4 @@
-require 'reuters'
+require './lib/buzzwords/reuters.rb'
 
 describe 'Reuters' do
   context '#headlines' do

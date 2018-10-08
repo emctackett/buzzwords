@@ -1,4 +1,4 @@
-require 'cnn'
+require './lib/buzzwords/cnn.rb'
 
 describe 'cnn' do
   context '#headlines' do

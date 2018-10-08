@@ -1,4 +1,4 @@
-require 'washington_post'
+require './lib/buzzwords/washington_post.rb'
 
 describe 'Washington Post' do
   context '#headlines' do

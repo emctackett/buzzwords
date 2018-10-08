@@ -1,4 +1,4 @@
-require 'ny_times'
+require './lib/buzzwords/ny_times.rb'
 
 describe 'NY Times' do
   context '#headlines' do
