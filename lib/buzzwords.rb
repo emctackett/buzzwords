@@ -10,7 +10,7 @@ class Buzzwords
   MECH = Mechanize.new
 
   @aggregate_headlines = []
-  @word_occurrences = {}
+  @word_occurrences = Hash.new(0)
   @top_words = nil
 
   class << self
@@ -63,7 +63,7 @@ class Buzzwords
 
   def self.count_word_occurrences
     aggregate_headlines.each do |word|
-      word_occurrences[word] ? word_occurrences[word] += 1 : word_occurrences[word] = 1
+      word_occurrences[word] += 1
     end
   end
 

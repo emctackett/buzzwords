@@ -62,4 +62,20 @@ describe 'buzzwords' do
       expect(Buzzwords.aggregate_headlines).not_to include(*Stopwords::STOP_WORDS)
     end
   end
+
+  context '.count_word_occurrences' do
+    before(:all) do
+      Buzzwords.retrieve_cnn_headlines
+      Buzzwords.count_word_occurrences
+    end
+
+    it 'should return a hash' do
+      expect(Buzzwords.word_occurrences).to be_an_instance_of(Hash)
+      expect(Buzzwords.word_occurrences).not_to be_empty
+    end
+
+    it 'should have integer values in the hash' do
+      expect(Buzzwords.word_occurrences.values).to all(be_an(Integer))
+    end
+  end
 end
