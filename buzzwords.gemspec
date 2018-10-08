@@ -13,6 +13,8 @@ Gem::Specification.new do |s|
   s.files                 = ['lib/buzzwords.rb', 'lib/buzzwords/cnn.rb', 'lib/buzzwords/ny_times.rb',
                              'lib/buzzwords/reuters.rb', 'lib/buzzwords/stopwords.rb',
                              'lib/buzzwords/washington_post.rb']
+  s.require_paths = ["lib"]
+
   s.homepage              = 'http://github.com/emctackett'
   s.license               = 'MIT'
 
