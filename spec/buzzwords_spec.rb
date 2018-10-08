@@ -78,4 +78,39 @@ describe 'buzzwords' do
       expect(Buzzwords.word_occurrences.values).to all(be_an(Integer))
     end
   end
+
+  context '.determine_top_words' do
+    before(:all) do
+      Buzzwords.retrieve_nytimes_headlines
+      Buzzwords.retrieve_cnn_headlines
+      Buzzwords.retrieve_reuters_headlines
+      Buzzwords.retrieve_wapo_headlines
+      Buzzwords.filter_stopwords
+      Buzzwords.count_word_occurrences
+      @top_words = Buzzwords.determine_top_words
+    end
+
+    it 'should return a non-empty array' do
+      expect(@top_words).to be_an_instance_of(Array)
+    end
+
+    it 'should return less than 21 words' do
+      expect(@top_words.length).to be <= 20
+    end
+
+    it 'should return list of unique words' do
+      expect(@top_words.uniq).to match(@top_words)
+    end
+  end
+
+  context '.display_top_words' do
+    it 'displays title heading' do
+      expect { Buzzwords.display_top_words }.to output(/Today's top buzzwords are: \n/).to_stdout
+    end
+
+    it 'displays list of words' do
+      Buzzwords.top_words = ['hello', 'hi', 'yes']
+      expect { Buzzwords.display_top_words }.to output(/ - hello\n - hi\n - yes\n/).to_stdout
+    end
+  end
 end
