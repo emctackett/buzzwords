@@ -7,28 +7,9 @@ require_relative 'reuters.rb'
 require_relative 'stopwords.rb'
 
 class Buzzwords
-  include Stopwords
-
-  # attr_reader :nytimes, :wapo, :cnn, :reuters
-  # attr_accessor :aggregate_headlines, :word_occurrences, :top_words
-
-  #   @things = []
-
-  # class << self
-  #   attr_accessor :things
-  # end
+  # include Stopwords
 
   MECH = Mechanize.new
-
-  # def initialize
-  #   @nytimes = NYTimes.new
-  #   @wapo = WashingtonPost.new
-  #   @cnn = CNN.new
-  #   @reuters = Reuters.new
-  #   @aggregate_headlines = []
-  #   @word_occurrences = {}
-  #   @top_words = nil
-  # end
 
   @aggregate_headlines = []
   @word_occurrences = {}
