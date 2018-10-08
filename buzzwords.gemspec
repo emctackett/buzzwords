@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                  = 'buzzwords'
-  s.version               = '0.0.0'
+  s.version               = '1.0.0'
   s.date                  = '2018-10-08'
   s.summary               = "A basic IRB tool to instantly generate the day's media buzzwords."
   s.description           = "A simple IRB tool that generates and displays the day's " +
@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.4.2'
 
-  s.add_development_dependency 'mechanize'
+  s.add_runtime_dependency 'mechanize'
   s.add_development_dependency 'rspec'
 end
