@@ -8,7 +8,9 @@ Gem::Specification.new do |s|
                           "The New York Times, The Washington Post, CNN, and Reuters."
   s.authors               = ['Elizabeth Tackett']
   s.email                 = 'emctackett@gmail.com'
-  s.files                 = ['lib/buzzwords.rb']
+  s.files                 = ['lib/buzzwords.rb', 'lib/buzzwords/cnn.rb', 'lib/buzzwords/ny_times.rb',
+                             'lib/buzzwords/reuters.rb', 'lib/buzzwords/stopwords.rb',
+                             'lib/buzzwords/washington_post.rb']
   s.homepage              = 'http://github.com/emctackett'
   s.license               = 'MIT'
 

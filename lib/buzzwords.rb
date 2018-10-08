@@ -1,10 +1,10 @@
 require 'mechanize'
 
-require_relative 'ny_times.rb'
-require_relative 'washington_post.rb'
-require_relative 'cnn.rb'
-require_relative 'reuters.rb'
-require_relative 'stopwords.rb'
+require_relative 'buzzwords/ny_times.rb'
+require_relative 'buzzwords/washington_post.rb'
+require_relative 'buzzwords/cnn.rb'
+require_relative 'buzzwords/reuters.rb'
+require_relative 'buzzwords/stopwords.rb'
 
 class Buzzwords
   MECH = Mechanize.new
