@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.date                  = '2018-10-08'
   s.summary               = "A basic IRB tool to instantly generate the day's media buzzwords."
   s.description           = "A simple IRB tool that generates and displays the day's " +
-                          "most popular buzzwords from news publications including " +
-                          "The New York Times, The Washington Post, CNN, and Reuters."
+                            "most popular buzzwords from news publications including " +
+                            "The New York Times, The Washington Post, CNN, and Reuters."
   s.authors               = ['Elizabeth Tackett']
   s.email                 = 'emctackett@gmail.com'
   s.files                 = ['lib/buzzwords.rb', 'lib/buzzwords/cnn.rb', 'lib/buzzwords/ny_times.rb',
