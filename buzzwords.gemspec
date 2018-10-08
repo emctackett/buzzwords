@@ -1,3 +1,5 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 Gem::Specification.new do |s|
   s.name                  = 'buzzwords'
   s.version               = '1.0.0'
