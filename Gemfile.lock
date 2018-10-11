@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    buzzwords (1.0.0)
+      mechanize
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,7 +29,7 @@ GEM
     net-http-digest_auth (1.4.1)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     ntlm-http (0.1.1)
     rspec (3.8.0)
@@ -48,11 +54,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mechanize
+  buzzwords!
   rspec
-
-RUBY VERSION
-   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.2

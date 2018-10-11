@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.files                 = ['lib/buzzwords.rb', 'lib/buzzwords/cnn.rb', 'lib/buzzwords/ny_times.rb',
                              'lib/buzzwords/reuters.rb', 'lib/buzzwords/stopwords.rb',
                              'lib/buzzwords/washington_post.rb']
+  s.test_files            = Dir.glob('spec/*_spec.rb')
   s.require_paths = ["lib"]
 
   s.homepage              = 'http://github.com/emctackett'
@@ -21,5 +22,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.4.2'
 
   s.add_runtime_dependency 'mechanize'
+
   s.add_development_dependency 'rspec'
 end
