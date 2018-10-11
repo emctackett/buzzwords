@@ -75,6 +75,6 @@ class Buzzwords
 
   def self.display_top_words
     puts "Today's top buzzwords are: "
-    top_words.each { |word| puts " - #{word}" }
+    puts top_words.map { |word| " - #{word}" }
   end
 end

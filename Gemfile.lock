@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     buzzwords (1.0.0)
-      mechanize
+      mechanize (~> 2.7, >= 2.7.6)
 
 GEM
   remote: https://rubygems.org/
@@ -55,7 +55,7 @@ PLATFORMS
 
 DEPENDENCIES
   buzzwords!
-  rspec
+  rspec (~> 3.8)
 
 BUNDLED WITH
    1.16.2
