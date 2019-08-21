@@ -8,7 +8,7 @@ class NYTimes
   end
 
   def headlines
-    webpage.search('.initial-set .headline').map do |headline|
+    webpage.search('.css-1j9dxys').map do |headline|
       headline.text.downcase.strip
     end
   end
